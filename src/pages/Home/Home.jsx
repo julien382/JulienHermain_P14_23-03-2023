@@ -1,5 +1,6 @@
 import './Home.css'
-//import { useState } from 'react';
+import { useState } from 'react';
+import { states } from '../../data/states.js';
 
 const Home = () => {
 
@@ -32,7 +33,8 @@ const Home = () => {
     localStorage.setItem('employees', JSON.stringify(employees));
     // logique pour sauvegarder l'employé
     /*setShowConfirmation(true);*/
-
+    };
+/*
     const states = () => [
         {
             "name": "Alabama",
@@ -46,7 +48,13 @@ const Home = () => {
             "name": "American Samoa",
             "abbreviation": "AS"
         }
-    ];
+    ];*/
+  
+
+  const [selectedState, setSelectedState] = useState("");
+
+  const handleStateChange = (event) => {
+    setSelectedState(event.target.value);
   };
 
 
@@ -82,7 +90,12 @@ const Home = () => {
                     <input id="city" type="text" />
 
                     <label htmlFor="state">State</label>
-                    <select name="state" id="state" ></select>
+                    <select name="state" id="state" value={selectedState} onChange={handleStateChange}>
+                        <option value="">Select a state</option>
+                        {states().map((state) => (
+                            <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
+                        ))}
+                    </select>
 
                     <label htmlFor="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" />
