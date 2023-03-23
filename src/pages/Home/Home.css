@@ -8,9 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     position: relative;
     background-color: white;
     padding: 20px;
@@ -18,13 +18,35 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     max-width: 400px; /* taille maximale de la modal */
     width: 100%; /* pour que la modal ne dépasse pas la taille maximale */
-  }
-  
-  .close {
+}
+
+.close {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 24px;
     cursor: pointer;
-  }
-  
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+}
+
+.partName, .partAddress, .partDepartment{
+    background-color: #e7e7e7;
+    margin: 15px;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.partAddress{
+}
+
+.partDepartment{
+}
