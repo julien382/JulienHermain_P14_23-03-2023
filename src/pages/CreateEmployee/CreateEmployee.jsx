@@ -1,8 +1,8 @@
-import './Home.css'
+import './CreateEmployee.css'
 import { useState } from 'react';
 import { states } from '../../data/states.js';
 
-const Home = () => {
+const CreateEmployee = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -47,7 +47,7 @@ const Home = () => {
 
 
     return (
-        <div className='home'>
+        <div className='CreateEmployee'>
             
             <div className="title">
                 <h1>HRnet</h1>
@@ -120,4 +120,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default CreateEmployee
