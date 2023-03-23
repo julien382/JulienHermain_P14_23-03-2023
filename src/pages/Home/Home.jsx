@@ -4,7 +4,7 @@ import { states } from '../../data/states.js';
 
 const Home = () => {
 
-    /* const [showConfirmation, setShowConfirmation] = useState(false);*/
+    const [isOpen, setIsOpen] = useState(false);
 
     const saveEmployee = () => {
         const firstName = document.getElementById('first-name');
@@ -31,9 +31,12 @@ const Home = () => {
         };
         employees.push(employee);
         localStorage.setItem('employees', JSON.stringify(employees));
-        // logique pour sauvegarder l'employé
-        /*setShowConfirmation(true);*/
+        setIsOpen(!isOpen);
     };
+
+    const handleClose = () => {
+        setIsOpen(false);
+      };
     
   //states location
   const [selectedState, setSelectedState] = useState("");
@@ -98,7 +101,15 @@ const Home = () => {
 
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
-            <div id="confirmation" className="modal">Employee Created!</div>
+            {isOpen && (
+                <div className="modal">
+                <div className="modal-content">
+                    <span className="close" onClick={handleClose}>X</span>
+                    <p>Employee Created!</p>
+                </div>
+                </div>
+            )}
+            {/*<div id="confirmation" className="modal">Employee Created!</div>*/}
             
         </div>
     )
