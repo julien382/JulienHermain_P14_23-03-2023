@@ -48,13 +48,8 @@ const CreateEmployee = () => {
 
     return (
         <div className='CreateEmployee'>
-            
-            <div className="title">
-                <h1>HRnet</h1>
-            </div>
             <div className="container">
-                <a href="employee-list.html">View Current Employees</a>
-                <h2>Create Employee</h2>
+                <h1>Create Employee</h1>
 
                 <form className='form' action="#" id="create-employee">
                     <div className='row'>
