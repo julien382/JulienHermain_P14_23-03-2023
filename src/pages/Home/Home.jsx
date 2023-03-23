@@ -32,6 +32,21 @@ const Home = () => {
     localStorage.setItem('employees', JSON.stringify(employees));
     // logique pour sauvegarder l'employé
     /*setShowConfirmation(true);*/
+
+    const states = () => [
+        {
+            "name": "Alabama",
+            "abbreviation": "AL"
+        },
+        {
+            "name": "Alaska",
+            "abbreviation": "AK"
+        },
+        {
+            "name": "American Samoa",
+            "abbreviation": "AS"
+        }
+    ];
   };
 
 
@@ -67,7 +82,7 @@ const Home = () => {
                     <input id="city" type="text" />
 
                     <label htmlFor="state">State</label>
-                    <select name="state" id="state"></select>
+                    <select name="state" id="state" ></select>
 
                     <label htmlFor="zip-code">Zip Code</label>
                     <input id="zip-code" type="number" />

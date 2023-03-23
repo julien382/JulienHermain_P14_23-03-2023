@@ -1,6 +1,6 @@
 import Home from '../pages/Home/Home';
 
-import '../styles/reset.css';
+//import '../styles/reset.css';
 import '../styles/index.css';
 
 function App() {
