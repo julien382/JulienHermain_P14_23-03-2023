@@ -1,9 +1,5 @@
-.partName, .partAddress, .partDepartment{
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
-.form {
+.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +9,7 @@
     border-radius: 10px;
 }
 
-input[type="text"], input[type="email"], input[type="number"], textarea, select {
+input[type="text"], input[type="email"], input[type="number"], textarea, select{
     width: 100%;
     height: 30px;
     margin: 10px 0;
@@ -24,34 +20,12 @@ input[type="text"], input[type="email"], input[type="number"], textarea, select 
     font-size: 16px;
 }
 
-select option {
-    background-color: #ffffff;
-    color: #000000;
+.partName, .partAddress, .partDepartment{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-input[type="submit"] {
-    width: 100%;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-input[type="submit"]:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border: 2px solid #000000;
-}
-
-.save {
+.save{
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid #000000;
@@ -67,13 +41,13 @@ input[type="submit"]:hover {
     margin-bottom: 25px;
 }
 
-.save:hover {
+.save:hover{
     background-color: #000000;
     color: #ffffff;
     border-color: #ffffff;
 }
 
-.modal {
+.modal{
     position: fixed;
     top: 0;
     left: 0;
@@ -86,7 +60,7 @@ input[type="submit"]:hover {
     align-items: center;
 }
   
-.modal-content {
+.modal-content{
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -97,7 +71,7 @@ input[type="submit"]:hover {
     text-align: center;
 }
   
-.close {
+.close{
     position: absolute;
     top: 10px;
     right: 10px;
@@ -108,11 +82,11 @@ input[type="submit"]:hover {
     color: #888;
 }
   
-.close:hover {
+.close:hover{
     color: #000;
 }
 
-p {
+p{
     margin: 20px;
     font-size: 18px;
     font-weight: bold;
