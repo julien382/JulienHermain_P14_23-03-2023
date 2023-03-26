@@ -32,6 +32,7 @@ const CreateEmployee = () => {
         employees.push(employee);
         localStorage.setItem('employees', JSON.stringify(employees));
         setIsOpen(!isOpen);
+        console.log(employees);
     };
 
     const handleClose = () => {

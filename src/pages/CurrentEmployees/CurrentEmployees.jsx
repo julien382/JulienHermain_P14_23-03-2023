@@ -1,7 +1,5 @@
 import './CurrentEmployees.css'
 import { Table } from 'antd';
-
-
 import { Link } from "react-router-dom";
 
 const CurrentEmployees = () => {
@@ -17,7 +15,7 @@ const CurrentEmployees = () => {
             street: '123 Main St',
             city: 'New York',
             state: 'New York',
-            zipCode: 10001,
+            zipCode: '10001',
         },
         {
             key: '2',
@@ -29,7 +27,7 @@ const CurrentEmployees = () => {
             street: '456 Elm St',
             city: 'San Francisco',
             state: 'California',
-            zipCode: 94107,
+            zipCode: '94107',
         }
       ];
 
@@ -85,11 +83,7 @@ const CurrentEmployees = () => {
     return (
         <div className='currentEmployees'>
             <h1>Current Employees</h1>
-
-            {/* à remplacer par un composant qui contient une tableau "plugin" */}
-            <table id="employee-table" class="display"></table>
             <Table dataSource={dataSource} columns={columns} />
-
             <Link to="/">Home</Link>
         </div>
     )
