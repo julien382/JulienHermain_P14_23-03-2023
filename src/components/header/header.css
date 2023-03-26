@@ -8,12 +8,36 @@
     width: 80px;
 }
 
+.nameSite{
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #333333;
+  text-shadow: 1px 1px 0px #ffffff;
+  margin-right: 25px;
+}
+
 .containerNav{
     display: flex;
     align-items: center;
     margin-right: 50px;
 }
 
-.link{
+.link {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
     margin-left: 25px;
+}
+  
+.link:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
 }

@@ -1,6 +1,5 @@
 import './CurrentEmployees.css'
 import { Table } from 'antd';
-import { Link } from "react-router-dom";
 
 const CurrentEmployees = () => {
 
@@ -84,7 +83,6 @@ const CurrentEmployees = () => {
         <div className='currentEmployees'>
             <h1>Current Employees</h1>
             <Table dataSource={dataSource} columns={columns} />
-            <Link to="/">Home</Link>
         </div>
     )
 }
