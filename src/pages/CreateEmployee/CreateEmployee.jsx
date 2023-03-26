@@ -3,9 +3,16 @@ import { useState } from 'react';
 import { states } from '../../data/states.js';
 
 const CreateEmployee = () => {
-
+    
+    // modal
     const [isOpen, setIsOpen] = useState(false);
+    // states location
+    const [selectedState, setSelectedState] = useState("");
+    const handleStateChange = (event) => {
+      setSelectedState(event.target.value);
+    };
 
+    // récupére les datas du formulaire
     const saveEmployee = () => {
         const firstName = document.getElementById('first-name');
         const lastName = document.getElementById('last-name');
@@ -17,6 +24,7 @@ const CreateEmployee = () => {
         const state = document.getElementById('state');
         const zipCode = document.getElementById('zip-code');
 
+        // mets les datas dans un tableau d'objets
         const employees = JSON.parse(localStorage.getItem('employees')) || [];
         const employee = {
             firstName: firstName.value,
@@ -32,13 +40,13 @@ const CreateEmployee = () => {
         employees.push(employee);
         localStorage.setItem('employees', JSON.stringify(employees));
         setIsOpen(!isOpen);
-        console.log(employees);
 
+        // rajout d'une key
         const dataWithKeys = employees.map((item, index) => {
             return { ...item, key: index };
         });
-        console.log(dataWithKeys);
 
+        // envoie la data dans le localStorage
         const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
         localStorage.setItem('storedData', JSON.stringify({
             ...storedData,
@@ -46,17 +54,11 @@ const CreateEmployee = () => {
         }));
     };
 
+    // fermeture de la modal
     const handleClose = () => {
         setIsOpen(false);
-      };
+    };
     
-  //states location
-  const [selectedState, setSelectedState] = useState("");
-  
-  const handleStateChange = (event) => {
-    setSelectedState(event.target.value);
-  };
-
 
     return (
         <div className='CreateEmployee'>
@@ -107,9 +109,7 @@ const CreateEmployee = () => {
                             <option>Legal</option>
                         </select>
                     </div>
-                    
                 </form>
-
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
             {isOpen && (
@@ -119,8 +119,7 @@ const CreateEmployee = () => {
                         <p>Employee Created!</p>
                     </div>
                 </div>
-            )}
-            
+            )}  
         </div>
     )
 }

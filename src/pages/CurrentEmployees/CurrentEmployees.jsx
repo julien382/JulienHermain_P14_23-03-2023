@@ -3,6 +3,7 @@ import { Table } from 'antd';
 
 const CurrentEmployees = () => {
 
+    // récupére la data du localStorage
     const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
     const formData = storedData.dataWithKeys;
     console.log(formData);
@@ -34,6 +35,7 @@ const CurrentEmployees = () => {
         }
       ];*/
 
+      // initialisation des columns
       const columns = [
         {
             title: 'FirstName',
