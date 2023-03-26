@@ -1,9 +1,86 @@
 import './CurrentEmployees.css'
+import { Table } from 'antd';
+
 
 import { Link } from "react-router-dom";
 
 const CurrentEmployees = () => {
 
+    const dataSource = [
+        {
+            key: '1',
+            firstName: 'Emma',
+            lastName: 'Jones',
+            startDate: '2019-06-15',
+            departement: 'Sales',
+            dateOfBirth: '1985-02-12',
+            street: '123 Main St',
+            city: 'New York',
+            state: 'New York',
+            zipCode: 10001,
+        },
+        {
+            key: '2',
+            firstName: 'Lucas',
+            lastName: 'Brown',
+            startDate: '2020-09-01',
+            departement: 'Marketing',
+            dateOfBirth: '1992-07-23',
+            street: '456 Elm St',
+            city: 'San Francisco',
+            state: 'California',
+            zipCode: 94107,
+        }
+      ];
+
+      const columns = [
+        {
+            title: 'FirstName',
+            dataIndex: 'firstName',
+            key: 'firstName',
+        },
+        {
+            title: 'LastName',
+            dataIndex: 'lastName',
+            key: 'lastName',
+        },
+        {
+            title: 'Start Date',
+            dataIndex: 'startDate',
+            key: 'startDate',
+        },
+        {
+            title: 'Departement',
+            dataIndex: 'departement',
+            key: 'departement',
+        },
+        {
+            title: 'Date of Birth',
+            dataIndex: 'dateOfBirth',
+            key: 'dateOfBirth',
+        },
+        {
+            title: 'Street',
+            dataIndex: 'street',
+            key: 'street',
+        },
+        {
+            title: 'City',
+            dataIndex: 'city',
+            key: 'city',
+        },
+        {
+            title: 'State',
+            dataIndex: 'state',
+            key: 'state',
+        },
+        {
+            title: 'Zip Code',
+            dataIndex: 'zipCode',
+            key: 'zipCode',
+        },
+      ];      
+      
 
     return (
         <div className='currentEmployees'>
@@ -11,6 +88,7 @@ const CurrentEmployees = () => {
 
             {/* à remplacer par un composant qui contient une tableau "plugin" */}
             <table id="employee-table" class="display"></table>
+            <Table dataSource={dataSource} columns={columns} />
 
             <Link to="/">Home</Link>
         </div>
