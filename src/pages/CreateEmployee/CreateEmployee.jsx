@@ -103,13 +103,12 @@ const CreateEmployee = () => {
             </div>
             {isOpen && (
                 <div className="modal">
-                <div className="modal-content">
-                    <span className="close" onClick={handleClose}>X</span>
-                    <p>Employee Created!</p>
-                </div>
+                    <div className="modal-content">
+                        <span className="close" onClick={handleClose}>X</span>
+                        <p>Employee Created!</p>
+                    </div>
                 </div>
             )}
-            {/*<div id="confirmation" className="modal">Employee Created!</div>*/}
             
         </div>
     )
