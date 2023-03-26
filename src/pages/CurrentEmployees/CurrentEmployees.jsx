@@ -14,7 +14,7 @@ const CurrentEmployees = () => {
             dateOfBirth: '1985-02-12',
             street: '123 Main St',
             city: 'New York',
-            state: 'New York',
+            state: 'NY',
             zipCode: '10001',
         },
         {
@@ -26,7 +26,7 @@ const CurrentEmployees = () => {
             dateOfBirth: '1992-07-23',
             street: '456 Elm St',
             city: 'San Francisco',
-            state: 'California',
+            state: 'CA',
             zipCode: '94107',
         }
       ];
