@@ -33,6 +33,17 @@ const CreateEmployee = () => {
         localStorage.setItem('employees', JSON.stringify(employees));
         setIsOpen(!isOpen);
         console.log(employees);
+
+        const dataWithKeys = employees.map((item, index) => {
+            return { ...item, key: index };
+        });
+        console.log(dataWithKeys);
+
+        const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
+        localStorage.setItem('storedData', JSON.stringify({
+            ...storedData,
+            dataWithKeys
+        }));
     };
 
     const handleClose = () => {

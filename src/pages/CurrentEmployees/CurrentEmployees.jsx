@@ -3,7 +3,11 @@ import { Table } from 'antd';
 
 const CurrentEmployees = () => {
 
-    const dataSource = [
+    const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
+    const formData = storedData.dataWithKeys;
+    console.log(formData);
+
+    /*const dataSource = [
         {
             key: '1',
             firstName: 'Emma',
@@ -28,7 +32,7 @@ const CurrentEmployees = () => {
             state: 'CA',
             zipCode: '94107',
         }
-      ];
+      ];*/
 
       const columns = [
         {
@@ -48,8 +52,8 @@ const CurrentEmployees = () => {
         },
         {
             title: 'Departement',
-            dataIndex: 'departement',
-            key: 'departement',
+            dataIndex: 'department',
+            key: 'department',
         },
         {
             title: 'Date of Birth',
@@ -76,13 +80,12 @@ const CurrentEmployees = () => {
             dataIndex: 'zipCode',
             key: 'zipCode',
         },
-      ];      
+      ];    
       
-
     return (
         <div className='currentEmployees'>
             <h1 className='title'>Current Employees</h1>
-            <Table dataSource={dataSource} columns={columns} />
+            <Table dataSource={formData} columns={columns} />
         </div>
     )
 }
