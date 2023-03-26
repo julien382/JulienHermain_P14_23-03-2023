@@ -74,6 +74,9 @@ const CreateEmployee = () => {
                             <label htmlFor="city">City</label>
                             <input id="city" type="text" />
 
+                            <label htmlFor="zip-code">Zip Code</label>
+                            <input id="zip-code" type="number" />
+
                             <label htmlFor="state">State</label>
                             <select name="state" id="state" value={selectedState} onChange={handleStateChange}>
                                 <option value="">Select a state</option>
@@ -81,9 +84,6 @@ const CreateEmployee = () => {
                                     <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
                                 ))}
                             </select>
-
-                            <label htmlFor="zip-code">Zip Code</label>
-                            <input id="zip-code" type="number" />
                         </div>
                     </div>
                     <div className='partDepartment'>
