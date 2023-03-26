@@ -50,7 +50,7 @@ const CreateEmployee = () => {
     return (
         <div className='CreateEmployee'>
             <div className="container">
-                <h1>Create Employee</h1>
+                <h1 className='title'>Create Employee</h1>
 
                 <form className='form' action="#" id="create-employee">
                     <div className='row'>
@@ -96,8 +96,7 @@ const CreateEmployee = () => {
                             <option>Legal</option>
                         </select>
                     </div>
-
-
+                    
                 </form>
 
                 <button className='save' onClick={saveEmployee}>Save</button>

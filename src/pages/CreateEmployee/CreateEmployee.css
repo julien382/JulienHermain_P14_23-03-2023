@@ -1,3 +1,87 @@
+.partName, .partAddress, .partDepartment{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+
+input[type="text"], input[type="email"], input[type="number"], textarea, select {
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 3px #d9d9d9;
+    font-size: 16px;
+}
+
+select option {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.save {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 25px;
+}
+
+.save:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -19,56 +103,3 @@
     max-width: 400px; /* taille maximale de la modal */
     width: 100%; /* pour que la modal ne dépasse pas la taille maximale */
 }
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.row{
-    display: flex;
-}
-
-.partName, .partAddress, .partDepartment{
-    background-color: #f5f5f5;
-    margin: 15px;
-    padding: 25px;
-    border-radius: 15px;
-}
-
-.partAddress{
-}
-
-.partDepartment{
-}
-
-.save {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-  
-.save:hover {
-    background-color: #000000;
-    color: #ffffff;
-    border-color: #ffffff;
-}
-

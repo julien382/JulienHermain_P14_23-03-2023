@@ -81,7 +81,7 @@ const CurrentEmployees = () => {
 
     return (
         <div className='currentEmployees'>
-            <h1>Current Employees</h1>
+            <h1 className='title'>Current Employees</h1>
             <Table dataSource={dataSource} columns={columns} />
         </div>
     )

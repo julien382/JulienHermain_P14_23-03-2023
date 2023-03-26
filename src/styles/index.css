@@ -29,13 +29,22 @@ code {
 label {
   display: block;
   margin-top: 1rem;
-  margin-bottom: 10px;
 }
 
 .address {
   margin-top: 10px;
 }
 
+.title{
+  font-size: 35px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
 .save{
   margin-top: 25px;
+}
+
+.row{
+  display: flex;
 }
