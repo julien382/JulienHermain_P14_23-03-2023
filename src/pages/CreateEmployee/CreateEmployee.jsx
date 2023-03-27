@@ -192,6 +192,14 @@ const CreateEmployee = () => {
             </div>
             <Modal setIsOpen={setIsOpen} isOpen={isOpen}>
                 <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
+                <p>salut les gens</p>
                 <button className="close-modal" onClick={()=>{setIsOpen(false)}}>fermer</button>
             </Modal>
         </div>

@@ -17,8 +17,10 @@ const Modal = ({
         <div className="modal-container">
             <div className="shadow" onClick={()=> setIsOpen(false)}></div>
             <div className="modal">
-                {closingCross && <span className="modal-close" onClick={handleClose}>{closeText}</span>}
-                {children}
+                <div className='inModal'>
+                    {closingCross && <span className="modal-close" onClick={handleClose}>{closeText}</span>}
+                    {children}
+                </div>
             </div>
         </div>
 
