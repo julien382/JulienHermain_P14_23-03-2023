@@ -6,7 +6,8 @@ import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEmployee = () => { 
-
+    // error message
+    const [errorMessage, setErrorMessage] = useState('');
     // modal
     const [isOpen, setIsOpen] = useState(false);
     // states location
@@ -50,7 +51,9 @@ const CreateEmployee = () => {
         }
     }
     // récupére les datas du formulaire
-    const saveEmployee = () => {
+    const saveEmployee = (event) => {
+        event.preventDefault();
+
         const firstName = document.getElementById('first-name');
         const lastName = document.getElementById('last-name');
         const dateOfBirth = formattedBirthDate;
@@ -62,30 +65,50 @@ const CreateEmployee = () => {
         const zipCode = document.getElementById('zip-code');
         // mets les datas dans un tableau d'objets
         const employees = JSON.parse(localStorage.getItem('employees')) || [];
-        const employee = {
-            firstName: firstName.value,
-            lastName: lastName.value,
-            dateOfBirth: dateOfBirth,
-            startDate: startDate,
-            department: department.value,
-            street: street.value,
-            city: city.value,
-            state: state.value,
-            zipCode: zipCode.value
-        };
-        employees.push(employee);
-        localStorage.setItem('employees', JSON.stringify(employees));
-        setIsOpen(!isOpen);
-        // rajout d'une key
-        const dataWithKeys = employees.map((item, index) => {
-            return { ...item, key: index };
-        });
-        // envoie la data dans le localStorage
-        const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
-        localStorage.setItem('storedData', JSON.stringify({
-            ...storedData,
-            dataWithKeys
-        }));
+        if ( // si il y a une data ca envoie le formulaire, sinon rien
+            firstName.value &&
+            lastName.value &&
+            dateOfBirth &&
+            startDate &&
+            department.value &&
+            street.value &&
+            city.value &&
+            state.value &&
+            zipCode.value
+          ) 
+        {
+            const employee = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                dateOfBirth: dateOfBirth,
+                startDate: startDate,
+                department: department.value,
+                street: street.value,
+                city: city.value,
+                state: state.value,
+                zipCode: zipCode.value
+            };
+            employees.push(employee);
+            localStorage.setItem('employees', JSON.stringify(employees));
+            setIsOpen(!isOpen);
+            // rajout d'une key
+            const dataWithKeys = employees.map((item, index) => {
+                return { ...item, key: index };
+            });
+            // envoie la data dans le localStorage
+            const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
+            localStorage.setItem('storedData', JSON.stringify({
+                ...storedData,
+                dataWithKeys
+            }));
+            console.log(storedData);
+            setErrorMessage(''); // Réinitialiser le message d'erreur
+            // Réinitialiser le formulaire
+            document.getElementById("create-employee").reset();
+        }
+        else{
+            setErrorMessage('Veuillez remplir tous les champs obligatoires');
+        }
     };
     // fermeture de la modal
     const handleClose = () => {
@@ -160,6 +183,7 @@ const CreateEmployee = () => {
                             <option>Legal</option>
                         </select>
                     </div>
+                    {errorMessage && <p className='errorMessage'>{errorMessage}</p>}
                 </form>
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
