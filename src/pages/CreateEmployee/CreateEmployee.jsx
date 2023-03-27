@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEmployee = () => { 
-    
+
     // modal
     const [isOpen, setIsOpen] = useState(false);
     // states location
@@ -49,7 +49,6 @@ const CreateEmployee = () => {
             event.preventDefault();
         }
     }
-
     // récupére les datas du formulaire
     const saveEmployee = () => {
         const firstName = document.getElementById('first-name');
