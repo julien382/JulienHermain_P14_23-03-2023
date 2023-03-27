@@ -14,7 +14,9 @@ const CreateEmployee = () => {
     const handleStateChange = (event) => {
       setSelectedState(event.target.value);
     };
-    //calendar birthDate
+    // calendar maxDate
+    const maxDate = new Date(); // Récupère la date actuelle
+    // calendar birthDate
     const [selectedBirthDate, setSelectedBirthDate] = useState(null);
     const [formattedBirthDate, setFormattedBirthDate] = useState('');
 
@@ -23,7 +25,7 @@ const CreateEmployee = () => {
         const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
         setFormattedBirthDate(formatted); 
     };
-    //calendar startDate
+    // calendar startDate
     const [selectedDate, setSelectedDate] = useState(null);
     const [formattedDate, setFormattedDate] = useState('');
 
@@ -32,6 +34,23 @@ const CreateEmployee = () => {
         const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
         setFormattedDate(formatted); 
     };
+    // regex letter 
+    const isLetter = (event) => {
+        const regex = new RegExp("^[a-zA-Z]+$");
+        const key = String.fromCharCode(event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+        }
+    }
+    // regex number 
+    const isNumber = (event) => {
+        const regex = new RegExp("^[0-9]+$");
+        const key = String.fromCharCode(event.charCode);
+        const value = event.target.value + key;
+        if (!regex.test(key) || value.length > 6) {
+            event.preventDefault();
+        }
+    }
 
     // récupére les datas du formulaire
     const saveEmployee = () => {
@@ -92,10 +111,10 @@ const CreateEmployee = () => {
                     <div className='row'>
                         <div className='partName'>
                             <label htmlFor="first-name">First Name</label>
-                            <input type="text" id="first-name" />
+                            <input type="text" id="first-name" onKeyPress={isLetter}/>
 
                             <label htmlFor="last-name">Last Name</label>
-                            <input type="text" id="last-name" />
+                            <input type="text" id="last-name" onKeyPress={isLetter}/>
 
                             <label htmlFor="date-of-birth">Date of Birth</label>
                             <DatePicker
@@ -103,8 +122,10 @@ const CreateEmployee = () => {
                                 onChange={handleBirthDateSelect}
                                 showYearDropdown
                                 scrollableYearDropdown
+                                yearDropdownItemNumber={100}
                                 showMonthDropdown
                                 dateFormat="MM/dd/yyyy"
+                                maxDate={maxDate}
                             />
 
                             <label htmlFor="start-date">Start Date</label>
@@ -113,8 +134,10 @@ const CreateEmployee = () => {
                                 onChange={handleDateSelect}
                                 showYearDropdown
                                 scrollableYearDropdown
+                                yearDropdownItemNumber={100}
                                 showMonthDropdown
                                 dateFormat="MM/dd/yyyy"
+                                maxDate={maxDate}
                             />
                         </div>
                         <div className='partAddress'>
@@ -122,12 +145,10 @@ const CreateEmployee = () => {
                             <input id="street" type="text" />
 
                             <label htmlFor="city">City</label>
-                            <input id="city" type="text" />
+                            <input id="city" type="text" onKeyPress={isLetter}/>
 
                             <label htmlFor="zip-code">Zip Code</label>
-                            <input id="zip-code" type="number" />
-
-                            
+                            <input id="zip-code" type="number" onKeyPress={isNumber}/>
 
                             <label htmlFor="state">State</label>
                             <select name="state" id="state" value={selectedState} onChange={handleStateChange}>
