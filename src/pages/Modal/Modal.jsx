@@ -5,7 +5,7 @@ const Modal = ({
     setIsOpen, // action
     isOpen, // état (ouvert/fermé)
     closingCross = true, // display cross
-    closeText = 'X' // text du closing button
+    editClose = 'X' // modifier le closing button
 }) => {
     // fermeture de la modal
     const handleClose = () => {
@@ -18,7 +18,7 @@ const Modal = ({
             <div className="shadow" onClick={()=> setIsOpen(false)}></div>
             <div className="modal">
                 <div className='inModal'>
-                    {closingCross && <span className="modal-close" onClick={handleClose}>{closeText}</span>}
+                    {closingCross && <span className="modal-close" onClick={handleClose}>{editClose}</span>}
                     {children}
                 </div>
             </div>

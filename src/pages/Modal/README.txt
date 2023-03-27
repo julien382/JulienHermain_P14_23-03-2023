@@ -19,7 +19,7 @@ const [isOpen, setIsOpen] = useState(false)
 
 ...
 
-<Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+<Modal setIsOpen={setIsOpen} isOpen={isOpen}>
     <p>Texte personalisé<p>
 <Modal/>
 ```
@@ -32,23 +32,23 @@ const [isOpen, setIsOpen] = useState(false)
 <Modal/>
 ```
 
-
 ### Remove closing cross
 
 ```
 <Modal isOpen={isOpen} setIsOpen={setIsOpen} closingCross={false}>
-    <p onClick={()=>setIsOpen(false)}>Fermer la modal<p>
+    <p>Texte personalisé<p>
 <Modal/>
 ```
-=============================================
 
-### CSS adjusting content
+### edit closing button
+
+```
+<Modal isOpen={isOpen} setIsOpen={setIsOpen} editClose="!">
+    <p>Texte personalisé<p>
+<Modal/>
+```
+
+=============================================
 
 ### fade transition
 props fadeDelay fadeDuration={3000}
-
-### close button tunning
-closeClass="new-class"
-closeText={yo!}
-
-### 
