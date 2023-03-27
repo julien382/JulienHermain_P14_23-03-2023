@@ -4,12 +4,15 @@ import { states } from '../../data/states.js';
 import DatePicker from "react-datepicker";
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
+import Modal from '../Modal/Modal';
 
 const CreateEmployee = () => { 
     // error message
     const [errorMessage, setErrorMessage] = useState('');
-    // modal
-    const [isOpen, setIsOpen] = useState(false);
+
+    // handle Modal
+    const [isOpen, setIsOpen] = useState(false)
+
     // states location
     const [selectedState, setSelectedState] = useState("");
     const handleStateChange = (event) => {
@@ -54,6 +57,10 @@ const CreateEmployee = () => {
     const saveEmployee = (event) => {
         event.preventDefault();
 
+        // TO REMOOOOOVE :D
+        setIsOpen(true);
+        return;
+
         const firstName = document.getElementById('first-name');
         const lastName = document.getElementById('last-name');
         const dateOfBirth = formattedBirthDate;
@@ -90,7 +97,7 @@ const CreateEmployee = () => {
             };
             employees.push(employee);
             localStorage.setItem('employees', JSON.stringify(employees));
-            setIsOpen(!isOpen);
+            setIsOpen(true);
             // rajout d'une key
             const dataWithKeys = employees.map((item, index) => {
                 return { ...item, key: index };
@@ -110,11 +117,7 @@ const CreateEmployee = () => {
             setErrorMessage('Veuillez remplir tous les champs obligatoires');
         }
     };
-    // fermeture de la modal
-    const handleClose = () => {
-        setIsOpen(false);
-    };
-
+    
 
     return (
         <div className='CreateEmployee'>
@@ -187,14 +190,10 @@ const CreateEmployee = () => {
                 </form>
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
-            {isOpen && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <span className="close" onClick={handleClose}>X</span>
-                        <p>Employee Created!</p>
-                    </div>
-                </div>
-            )}  
+            <Modal setIsOpen={setIsOpen} isOpen={isOpen}>
+                <p>salut les gens</p>
+                <button className="close-modal" onClick={()=>{setIsOpen(false)}}>fermer</button>
+            </Modal>
         </div>
     )
 }
