@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 
-const CreateEmployee = () => {
+const CreateEmployee = () => { 
     
     // modal
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,6 @@ const CreateEmployee = () => {
     // calendar birthDate
     const [selectedBirthDate, setSelectedBirthDate] = useState(null);
     const [formattedBirthDate, setFormattedBirthDate] = useState('');
-
     const handleBirthDateSelect = (date) => {
         setSelectedBirthDate(date); // Met à jour l'état avec la date sélectionnée
         const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
@@ -28,7 +27,6 @@ const CreateEmployee = () => {
     // calendar startDate
     const [selectedDate, setSelectedDate] = useState(null);
     const [formattedDate, setFormattedDate] = useState('');
-
     const handleDateSelect = (date) => {
         setSelectedDate(date); // Met à jour l'état avec la date sélectionnée
         const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
@@ -63,9 +61,6 @@ const CreateEmployee = () => {
         const city = document.getElementById('city');
         const state = document.getElementById('state');
         const zipCode = document.getElementById('zip-code');
-        console.log(dateOfBirth);
-        console.log(startDate);
-
         // mets les datas dans un tableau d'objets
         const employees = JSON.parse(localStorage.getItem('employees')) || [];
         const employee = {
@@ -82,12 +77,10 @@ const CreateEmployee = () => {
         employees.push(employee);
         localStorage.setItem('employees', JSON.stringify(employees));
         setIsOpen(!isOpen);
-
         // rajout d'une key
         const dataWithKeys = employees.map((item, index) => {
             return { ...item, key: index };
         });
-
         // envoie la data dans le localStorage
         const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
         localStorage.setItem('storedData', JSON.stringify({
@@ -95,12 +88,11 @@ const CreateEmployee = () => {
             dataWithKeys
         }));
     };
-
     // fermeture de la modal
     const handleClose = () => {
         setIsOpen(false);
     };
-    
+
 
     return (
         <div className='CreateEmployee'>
