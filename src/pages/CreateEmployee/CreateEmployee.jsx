@@ -196,10 +196,6 @@ const CreateEmployee = () => {
                 <p>salut les gens</p>
                 <p>salut les gens</p>
                 <p>salut les gens</p>
-                <p>salut les gens</p>
-                <p>salut les gens</p>
-                <p>salut les gens</p>
-                <p>salut les gens</p>
                 <button className="close-modal" onClick={()=>{setIsOpen(false)}}>fermer</button>
             </Modal>
         </div>
