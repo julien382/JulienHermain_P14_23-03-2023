@@ -1,6 +1,8 @@
 import './CreateEmployee.css'
 import { useState } from 'react';
 import { states } from '../../data/states.js';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEmployee = () => {
     
@@ -11,6 +13,8 @@ const CreateEmployee = () => {
     const handleStateChange = (event) => {
       setSelectedState(event.target.value);
     };
+    //calendar
+    const [selectedDate, setSelectedDate] = useState(null);
 
     // récupére les datas du formulaire
     const saveEmployee = () => {
@@ -89,6 +93,16 @@ const CreateEmployee = () => {
 
                             <label htmlFor="zip-code">Zip Code</label>
                             <input id="zip-code" type="number" />
+                            
+                            <DatePicker
+                                selected={selectedDate}
+                                onChange={(date) => setSelectedDate(date)}
+                                showYearDropdown
+                                scrollableYearDropdown
+                                showMonthDropdown
+                                dateFormat="dd/MM/yyyy"
+                            />
+
 
                             <label htmlFor="state">State</label>
                             <select name="state" id="state" value={selectedState} onChange={handleStateChange}>
