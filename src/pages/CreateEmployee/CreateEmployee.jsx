@@ -2,6 +2,7 @@ import './CreateEmployee.css'
 import { useState } from 'react';
 import { states } from '../../data/states.js';
 import DatePicker from "react-datepicker";
+import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEmployee = () => {
@@ -13,28 +14,46 @@ const CreateEmployee = () => {
     const handleStateChange = (event) => {
       setSelectedState(event.target.value);
     };
-    //calendar
+    //calendar birthDate
+    const [selectedBirthDate, setSelectedBirthDate] = useState(null);
+    const [formattedBirthDate, setFormattedBirthDate] = useState('');
+
+    const handleBirthDateSelect = (date) => {
+        setSelectedBirthDate(date); // Met à jour l'état avec la date sélectionnée
+        const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
+        setFormattedBirthDate(formatted); 
+    };
+    //calendar startDate
     const [selectedDate, setSelectedDate] = useState(null);
+    const [formattedDate, setFormattedDate] = useState('');
+
+    const handleDateSelect = (date) => {
+        setSelectedDate(date); // Met à jour l'état avec la date sélectionnée
+        const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
+        setFormattedDate(formatted); 
+    };
 
     // récupére les datas du formulaire
     const saveEmployee = () => {
         const firstName = document.getElementById('first-name');
         const lastName = document.getElementById('last-name');
-        const dateOfBirth = document.getElementById('date-of-birth');
-        const startDate = document.getElementById('start-date');
+        const dateOfBirth = formattedBirthDate;
+        const startDate = formattedDate;
         const department = document.getElementById('department');
         const street = document.getElementById('street');
         const city = document.getElementById('city');
         const state = document.getElementById('state');
         const zipCode = document.getElementById('zip-code');
+        console.log(dateOfBirth);
+        console.log(startDate);
 
         // mets les datas dans un tableau d'objets
         const employees = JSON.parse(localStorage.getItem('employees')) || [];
         const employee = {
             firstName: firstName.value,
             lastName: lastName.value,
-            dateOfBirth: dateOfBirth.value,
-            startDate: startDate.value,
+            dateOfBirth: dateOfBirth,
+            startDate: startDate,
             department: department.value,
             street: street.value,
             city: city.value,
@@ -79,10 +98,24 @@ const CreateEmployee = () => {
                             <input type="text" id="last-name" />
 
                             <label htmlFor="date-of-birth">Date of Birth</label>
-                            <input id="date-of-birth" type="text" />
+                            <DatePicker
+                                selected={selectedBirthDate}
+                                onChange={handleBirthDateSelect}
+                                showYearDropdown
+                                scrollableYearDropdown
+                                showMonthDropdown
+                                dateFormat="MM/dd/yyyy"
+                            />
 
                             <label htmlFor="start-date">Start Date</label>
-                            <input id="start-date" type="text" />
+                            <DatePicker
+                                selected={selectedDate}
+                                onChange={handleDateSelect}
+                                showYearDropdown
+                                scrollableYearDropdown
+                                showMonthDropdown
+                                dateFormat="MM/dd/yyyy"
+                            />
                         </div>
                         <div className='partAddress'>
                             <label htmlFor="street">Street</label>
@@ -93,16 +126,8 @@ const CreateEmployee = () => {
 
                             <label htmlFor="zip-code">Zip Code</label>
                             <input id="zip-code" type="number" />
-                            
-                            <DatePicker
-                                selected={selectedDate}
-                                onChange={(date) => setSelectedDate(date)}
-                                showYearDropdown
-                                scrollableYearDropdown
-                                showMonthDropdown
-                                dateFormat="dd/MM/yyyy"
-                            />
 
+                            
 
                             <label htmlFor="state">State</label>
                             <select name="state" id="state" value={selectedState} onChange={handleStateChange}>
