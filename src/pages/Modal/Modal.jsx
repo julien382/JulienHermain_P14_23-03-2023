@@ -16,12 +16,13 @@ const Modal = ({
     // transition de fondu
     const transitionStyle = {
         transition: `opacity ${fadeDuration}ms ease-in-out ${fadeDelay}ms`,
-        //opacity: isOpen ? 1 : 0
+        opacity: isOpen ? 1 : 0
     };
 
-    if(!isOpen) return null
+   // if(!isOpen) return null
     return (
-        <div className="shadow-modal" onClick={()=> setIsOpen(false)}>
+        <div>
+            <div className={isOpen ? "shadow-modal" : ""} onClick={()=> setIsOpen(false)}></div>
             <div className={`modal`} style={transitionStyle}>
                 <div className='inModal'>
                     {closingCross && <span className="modal-close" onClick={handleClose}>{editClose}</span>}
@@ -29,6 +30,8 @@ const Modal = ({
                 </div>
             </div>
         </div>
+        
+        
     )
 }
 

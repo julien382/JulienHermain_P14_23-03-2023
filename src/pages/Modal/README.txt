@@ -1,11 +1,11 @@
-# MA SUPER MODAL
+# EasyModal 
 
-Ma-Super-Modal est un composant REACT. Ce composant est uniquement utilisable sur une stack reactJS.
+EasyModal est un composant REACT. Ce composant est uniquement utilisable sur une stack reactJS.
 
 ## Install
 
 ```
-$ npm install lenomdemonpackage
+$ npm install easyModal
 ```
 
 ## utilisation
@@ -48,7 +48,10 @@ const [isOpen, setIsOpen] = useState(false)
 <Modal/>
 ```
 
-=============================================
+### fadeDuration and fadeDelay
 
-### fade transition
-props fadeDelay fadeDuration={3000}
+```
+<Modal setIsOpen={setIsOpen} isOpen={isOpen} fadeDuration={500} fadeDelay={10}>
+    <p>Texte personalisé<p>
+<Modal/>
+```

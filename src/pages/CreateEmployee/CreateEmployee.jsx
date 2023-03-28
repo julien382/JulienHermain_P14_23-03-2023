@@ -190,7 +190,7 @@ const CreateEmployee = () => {
                 </form>
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
-            <Modal setIsOpen={setIsOpen} isOpen={isOpen} fadeDuration={500} fadeDelay={100}>
+            <Modal setIsOpen={setIsOpen} isOpen={isOpen} fadeDuration={500} fadeDelay={10}>
                 <p>salut les gens</p>
                 <p>salut les gens</p>
                 <p>salut les gens</p>
