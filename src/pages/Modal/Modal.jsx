@@ -21,8 +21,7 @@ const Modal = ({
 
     if(!isOpen) return null
     return (
-        <div className="modal-container">
-            <div className="shadow" onClick={()=> setIsOpen(false)}></div>
+        <div className="shadow-modal" onClick={()=> setIsOpen(false)}>
             <div className={`modal`} style={transitionStyle}>
                 <div className='inModal'>
                     {closingCross && <span className="modal-close" onClick={handleClose}>{editClose}</span>}
