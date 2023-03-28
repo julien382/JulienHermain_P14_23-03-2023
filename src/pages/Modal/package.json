@@ -1,11 +1,20 @@
 {
   "name": "julien-easy-modal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "EasyModal est un composant REACT. Ce composant est uniquement utilisable sur une stack reactJS.",
   "main": "Modal.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Julien",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julien382"
+  },
+  "keywords": [
+    "modal",
+    "easyModal",
+    "modalClose"
+  ]
 }

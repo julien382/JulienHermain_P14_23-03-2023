@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from '../Modal/Modal';
+//import Modal from "julien-easy-modal";
 
 const CreateEmployee = () => { 
     // error message
