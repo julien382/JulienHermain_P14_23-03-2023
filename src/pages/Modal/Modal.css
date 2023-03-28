@@ -35,7 +35,6 @@
     max-height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-right: 15px;
 }
 /*style pour la barre de défilement*/
 .inModal::-webkit-scrollbar {
