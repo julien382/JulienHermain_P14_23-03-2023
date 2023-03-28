@@ -40,7 +40,7 @@ const [isOpen, setIsOpen] = useState(false)
 <Modal/>
 ```
 
-### edit closing button
+### Edit closing button
 
 ```
 <Modal isOpen={isOpen} setIsOpen={setIsOpen} editClose="!">
