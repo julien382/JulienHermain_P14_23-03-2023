@@ -19,7 +19,7 @@ const Modal = ({
         opacity: isOpen ? 1 : 0
     };
 
-   // if(!isOpen) return null
+
     return (
         <div>
             <div className={isOpen ? "shadow-modal" : ""} onClick={()=> setIsOpen(false)}></div>
