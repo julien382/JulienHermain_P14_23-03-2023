@@ -20,7 +20,7 @@ const [isOpen, setIsOpen] = useState(false)
 ...
 
 <Modal setIsOpen={setIsOpen} isOpen={isOpen}>
-    <p>Texte personalisé<p>
+    <p>Texte personalisé</p>
 <Modal/>
 ```
 
@@ -28,7 +28,7 @@ const [isOpen, setIsOpen] = useState(false)
 
 ```
 <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-    <p onClick={()=>setIsOpen(false)}>Fermer la modal<p>
+    <p onClick={()=>setIsOpen(false)}>Fermer la modal</p>
 <Modal/>
 ```
 
@@ -36,7 +36,7 @@ const [isOpen, setIsOpen] = useState(false)
 
 ```
 <Modal isOpen={isOpen} setIsOpen={setIsOpen} closingCross={false}>
-    <p>Texte personalisé<p>
+    <p>Texte personalisé</p>
 <Modal/>
 ```
 
@@ -44,7 +44,7 @@ const [isOpen, setIsOpen] = useState(false)
 
 ```
 <Modal isOpen={isOpen} setIsOpen={setIsOpen} editClose="!">
-    <p>Texte personalisé<p>
+    <p>Texte personalisé</p>
 <Modal/>
 ```
 
@@ -52,6 +52,6 @@ const [isOpen, setIsOpen] = useState(false)
 
 ```
 <Modal setIsOpen={setIsOpen} isOpen={isOpen} fadeDuration={500} fadeDelay={10}>
-    <p>Texte personalisé<p>
+    <p>Texte personalisé</p>
 <Modal/>
 ```

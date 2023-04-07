@@ -24,8 +24,8 @@ const Modal = ({
         <div>
             <div className={isOpen ? "shadow-modal" : ""} onClick={()=> setIsOpen(false)}></div>
             <div className={isOpen ? "modal" : ""} style={transitionStyle}>
-                <div className='inModal'>
-                    {closingCross && <span className="modal-close" onClick={handleClose}>{editClose}</span>}
+                <div className={isOpen ? "inModal" : ""}>
+                    {closingCross && <span className={isOpen ? "modal-close" : ""} onClick={handleClose}>{editClose}</span>}
                     {children}
                 </div>
             </div>

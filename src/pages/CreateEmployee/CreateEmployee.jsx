@@ -4,8 +4,8 @@ import { states } from '../../data/states.js';
 import DatePicker from "react-datepicker";
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-import Modal from '../Modal/Modal';
-//import Modal from "julien-easy-modal";
+//import Modal from '../Modal/Modal';
+import Modal from "julien-easy-modal";
 
 const CreateEmployee = () => { 
     // error message
@@ -54,13 +54,14 @@ const CreateEmployee = () => {
             event.preventDefault();
         }
     }
+    //const [employees, setEmployees] = useState([]);
     // récupére les datas du formulaire
     const saveEmployee = (event) => {
         event.preventDefault();
 
         // TO REMOOOOOVE :D
-        setIsOpen(true);
-        return;
+        //setIsOpen(true);
+        //return;
 
         const firstName = document.getElementById('first-name');
         const lastName = document.getElementById('last-name');
@@ -96,6 +97,16 @@ const CreateEmployee = () => {
                 state: state.value,
                 zipCode: zipCode.value
             };
+/*
+            setEmployees([...employees, employee]);
+
+            setIsOpen(true);
+
+            setErrorMessage('');
+
+            // Réinitialiser le formulaire
+            document.getElementById("create-employee").reset();
+*/
             employees.push(employee);
             localStorage.setItem('employees', JSON.stringify(employees));
             setIsOpen(true);
@@ -191,6 +202,9 @@ const CreateEmployee = () => {
                 </form>
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
+            {/*<Modal setIsOpen={setIsOpen} isOpen={isOpen}>
+                <p>Texte personalisé</p>
+            </Modal>*/}
             <Modal setIsOpen={setIsOpen} isOpen={isOpen} fadeDuration={500} fadeDelay={10}>
                 <p>salut les gens</p>
                 <p>salut les gens</p>
