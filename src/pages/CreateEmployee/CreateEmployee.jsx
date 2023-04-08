@@ -4,10 +4,13 @@ import { states } from '../../data/states.js';
 import DatePicker from "react-datepicker";
 import { format } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from 'react-redux';
+import { addEmployee } from '../../services/store';
 //import Modal from '../Modal/Modal';
 import Modal from "julien-easy-modal";
 
 const CreateEmployee = () => { 
+    const dispatch = useDispatch();
     // datas
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -21,7 +24,7 @@ const CreateEmployee = () => {
     // handle Modal
     const [isOpen, setIsOpen] = useState(false)
 
-    // calendar maxDate
+    // set a calendar maxDate
     const maxDate = new Date(); // Récupère la date actuelle
     // calendar birthDate
     const [selectedBirthDate, setSelectedBirthDate] = useState(null);
@@ -80,16 +83,19 @@ const CreateEmployee = () => {
           ) 
         {
             const employee = { // l'objet qui contient les datas
-                firstName,
-                lastName,
-                formattedBirthDate,
-                formattedDate,
-                department,
-                street,
-                city,
-                state,
-                zipCode
+                firstName: firstName,
+                lastName: lastName,
+                dateOfBirth: formattedBirthDate,
+                startDate: formattedDate,
+                department: department,
+                street: street,
+                city: city,
+                state: state,
+                zipCode: zipCode
             };
+
+            // dispatch the addEmployee action with the new employee object as the payload
+            dispatch(addEmployee(employee));
             
             employees.push(employee);
             console.log(employees);

@@ -3,7 +3,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 const initialState = [] // initialState of my data
 
 const employeeSlice = createSlice({
-  name: 'employee',
+  name: 'employees',
   initialState: initialState,
   reducers: {
     addEmployee(state, action) {
