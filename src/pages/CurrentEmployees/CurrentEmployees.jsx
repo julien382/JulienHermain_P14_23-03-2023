@@ -4,8 +4,6 @@ import { Table } from 'antd';
 
 const CurrentEmployees = () => {
     const formData = useSelector(state => state);
-    console.log(formData && formData.length > 0 ? formData : "No employees found");
-    console.log(formData);
 
     // récupére la data du localStorage
     /*const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
@@ -70,23 +68,6 @@ const CurrentEmployees = () => {
         <div className='currentEmployees'>
             <h1 className='title'>Current Employees</h1>
             <Table dataSource={formData} columns={columns} pagination={pagination}/>
-            {formData == null ? (
-              <p>No formData found</p>
-          ) : (
-            formData.map((employee, index) => (
-              <p key={index}>
-                <p>{employee.firstName}</p>1
-                <p>{employee.lastName}</p>
-                <p>{employee.dateOfBirth}</p>
-                <p>{employee.startDate}</p>
-                <p>{employee.department}</p>
-                <p>{employee.street}</p>
-                <p>{employee.city}</p>
-                <p>{employee.state}</p>
-                <p>{employee.zipCode}</p>
-              </p>
-            ))
-          )}
         </div>
     )
 }

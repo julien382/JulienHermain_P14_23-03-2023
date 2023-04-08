@@ -94,8 +94,13 @@ const CreateEmployee = () => {
                 zipCode: zipCode
             };
 
+            const newEmployee = {
+                key: Date.now(), // génère un ID unique basé sur la date
+                ...employee,
+              };
+
             // dispatch the addEmployee action with the new employee object as the payload
-            dispatch(addEmployee(employee));
+            dispatch(addEmployee(newEmployee));
             
             /*employees.push(employee);
             console.log(employees);
@@ -112,6 +117,7 @@ const CreateEmployee = () => {
                 dataWithKeys
             }));
             console.log(storedData);*/
+            
             setErrorMessage(''); // Réinitialiser le message d'erreur
             // Réinitialiser le formulaire
             document.getElementById("create-employee").reset();
