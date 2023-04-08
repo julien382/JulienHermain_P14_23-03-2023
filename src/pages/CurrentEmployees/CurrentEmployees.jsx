@@ -71,22 +71,20 @@ const CurrentEmployees = () => {
             <h1 className='title'>Current Employees</h1>
             <Table dataSource={formData} columns={columns} pagination={pagination}/>
             {employees == null ? (
-            <tr>
-              <td colSpan="9">No employees found</td>
-            </tr>
+              <p>No employees found</p>
           ) : (
             employees.map((employee, index) => (
-              <tr key={index}>
-                <td>{employee.firstName}</td>1
-                <td>{employee.lastName}</td>
-                <td>{employee.dateOfBirth}</td>
-                <td>{employee.startDate}</td>
-                <td>{employee.department}</td>
-                <td>{employee.street}</td>
-                <td>{employee.city}</td>
-                <td>{employee.state}</td>
-                <td>{employee.zipCode}</td>
-              </tr>
+              <p key={index}>
+                <p>{employee.firstName}</p>1
+                <p>{employee.lastName}</p>
+                <p>{employee.dateOfBirth}</p>
+                <p>{employee.startDate}</p>
+                <p>{employee.department}</p>
+                <p>{employee.street}</p>
+                <p>{employee.city}</p>
+                <p>{employee.state}</p>
+                <p>{employee.zipCode}</p>
+              </p>
             ))
           )}
         </div>
