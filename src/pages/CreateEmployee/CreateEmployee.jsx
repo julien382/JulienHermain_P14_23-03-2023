@@ -41,6 +41,7 @@ const CreateEmployee = () => {
         setSelectedDate(date); // Met à jour l'état avec la date sélectionnée
         const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
         setFormattedDate(formatted); 
+
     };
     // regex letter 
     const isLetter = (event) => {
@@ -121,6 +122,8 @@ const CreateEmployee = () => {
             setErrorMessage(''); // Réinitialiser le message d'erreur
             // Réinitialiser le formulaire
             document.getElementById("create-employee").reset();
+            setSelectedBirthDate(null);
+            setSelectedDate(null);
         }
         else{
             setErrorMessage('Veuillez remplir tous les champs obligatoires');
