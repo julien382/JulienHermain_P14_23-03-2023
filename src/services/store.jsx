@@ -1,42 +1,24 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
-const initialState = { // initialState of my data
-    firstName: false,
-    lastName: '',
-    dateOfBirth: '',
-    startDate: '',
-    department: '',
-    street: '',
-    createcitydAt: '',
-    state: '',
-    zipCode: '',
-}
+const initialState = [] // initialState of my data
 
 const employeeSlice = createSlice({
   name: 'employee',
   initialState: initialState,
   reducers: {
-    setEmployee(state, action) {
-      // set Employee data in state
-      state.firstName = firstName
-      state.lastName = lastName
-      state.dateOfBirth = dateOfBirth
-      state.startDate = startDate
-      state.department = department
-      state.street = street
-      state.createcitydAt = createcitydAt
-      state.state = state
-      state.zipCode = zipCode
+    addEmployee(state, action) {
+        // add a new Employee to the state
+        state.push(action.payload)
     },
 
-    clearEmployee() {
+    clearEmployees() {
       // reset the state to its initial value
       return initialState
     },
   },
 })
 
-export const { userLogin, userLogout } = employeeSlice.actions;
+export const { addEmployee, clearEmployees } = employeeSlice.actions;
 
 const store = configureStore({
   reducer: employeeSlice.reducer,

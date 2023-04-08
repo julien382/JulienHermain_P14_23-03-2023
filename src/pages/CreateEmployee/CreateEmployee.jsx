@@ -8,17 +8,19 @@ import "react-datepicker/dist/react-datepicker.css";
 import Modal from "julien-easy-modal";
 
 const CreateEmployee = () => { 
+    // datas
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [department, setDepartment] = useState('');
+    const [street, setStreet] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zipCode, setZipCode] = useState('');
     // error message
     const [errorMessage, setErrorMessage] = useState('');
-
     // handle Modal
     const [isOpen, setIsOpen] = useState(false)
 
-    // states location
-    const [selectedState, setSelectedState] = useState("");
-    const handleStateChange = (event) => {
-      setSelectedState(event.target.value);
-    };
     // calendar maxDate
     const maxDate = new Date(); // Récupère la date actuelle
     // calendar birthDate
@@ -54,7 +56,7 @@ const CreateEmployee = () => {
             event.preventDefault();
         }
     }
-    //const [employees, setEmployees] = useState([]);
+
     // récupére les datas du formulaire
     const saveEmployee = (event) => {
         event.preventDefault();
@@ -63,51 +65,34 @@ const CreateEmployee = () => {
         //setIsOpen(true);
         //return;
 
-        const firstName = document.getElementById('first-name');
-        const lastName = document.getElementById('last-name');
-        const dateOfBirth = formattedBirthDate;
-        const startDate = formattedDate;
-        const department = document.getElementById('department');
-        const street = document.getElementById('street');
-        const city = document.getElementById('city');
-        const state = document.getElementById('state');
-        const zipCode = document.getElementById('zip-code');
         // mets les datas dans un tableau d'objets
         const employees = JSON.parse(localStorage.getItem('employees')) || [];
         if ( // si il y a une data ca envoie le formulaire, sinon rien
-            firstName.value &&
-            lastName.value &&
-            dateOfBirth &&
-            startDate &&
-            department.value &&
-            street.value &&
-            city.value &&
-            state.value &&
-            zipCode.value
+            firstName &&
+            lastName &&
+            formattedBirthDate &&
+            formattedDate &&
+            department &&
+            street &&
+            city &&
+            state &&
+            zipCode
           ) 
         {
-            const employee = {
-                firstName: firstName.value,
-                lastName: lastName.value,
-                dateOfBirth: dateOfBirth,
-                startDate: startDate,
-                department: department.value,
-                street: street.value,
-                city: city.value,
-                state: state.value,
-                zipCode: zipCode.value
+            const employee = { // l'objet qui contient les datas
+                firstName,
+                lastName,
+                formattedBirthDate,
+                formattedDate,
+                department,
+                street,
+                city,
+                state,
+                zipCode
             };
-/*
-            setEmployees([...employees, employee]);
-
-            setIsOpen(true);
-
-            setErrorMessage('');
-
-            // Réinitialiser le formulaire
-            document.getElementById("create-employee").reset();
-*/
+            
             employees.push(employee);
+            console.log(employees);
             localStorage.setItem('employees', JSON.stringify(employees));
             setIsOpen(true);
             // rajout d'une key
@@ -140,10 +125,10 @@ const CreateEmployee = () => {
                     <div className='row'>
                         <div className='partName'>
                             <label htmlFor="first-name">First Name</label>
-                            <input type="text" id="first-name" onKeyPress={isLetter}/>
+                            <input type="text" id="first-name" onChange={(e) => setFirstName(e.target.value)} onKeyPress={isLetter}/>
 
                             <label htmlFor="last-name">Last Name</label>
-                            <input type="text" id="last-name" onKeyPress={isLetter}/>
+                            <input type="text" id="last-name" onChange={(e) => setLastName(e.target.value)} onKeyPress={isLetter}/>
 
                             <label htmlFor="date-of-birth">Date of Birth</label>
                             <DatePicker
@@ -171,16 +156,16 @@ const CreateEmployee = () => {
                         </div>
                         <div className='partAddress'>
                             <label htmlFor="street">Street</label>
-                            <input id="street" type="text" />
+                            <input id="street" type="text" onChange={(e) => setStreet(e.target.value)} />
 
                             <label htmlFor="city">City</label>
-                            <input id="city" type="text" onKeyPress={isLetter}/>
+                            <input id="city" type="text" onKeyPress={isLetter} onChange={(e) => setCity(e.target.value)} />
 
                             <label htmlFor="zip-code">Zip Code</label>
-                            <input id="zip-code" type="number" onKeyPress={isNumber}/>
+                            <input id="zip-code" type="number" onKeyPress={isNumber} onChange={(e) => setZipCode(e.target.value)} />
 
                             <label htmlFor="state">State</label>
-                            <select name="state" id="state" value={selectedState} onChange={handleStateChange}>
+                            <select name="state" id="state" onChange={(e) => setState(e.target.value)}>
                                 <option value="">Select a state</option>
                                 {states().map((state) => (
                                     <option key={state.abbreviation} value={state.abbreviation}>{state.name}</option>
@@ -190,7 +175,7 @@ const CreateEmployee = () => {
                     </div>
                     <div className='partDepartment'>
                         <label htmlFor="department">Department</label>
-                        <select name="department" id="department">
+                        <select name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
                             <option>Sales</option>
                             <option>Marketing</option>
                             <option>Engineering</option>
@@ -202,9 +187,6 @@ const CreateEmployee = () => {
                 </form>
                 <button className='save' onClick={saveEmployee}>Save</button>
             </div>
-            {/*<Modal setIsOpen={setIsOpen} isOpen={isOpen}>
-                <p>Texte personalisé</p>
-            </Modal>*/}
             <Modal setIsOpen={setIsOpen} isOpen={isOpen} fadeDuration={500} fadeDelay={10}>
                 <p>salut les gens</p>
                 <p>salut les gens</p>
