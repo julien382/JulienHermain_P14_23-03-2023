@@ -3,14 +3,14 @@ import './CurrentEmployees.css'
 import { Table } from 'antd';
 
 const CurrentEmployees = () => {
-    const employees = useSelector(state => state.employees);
-    console.log(employees && employees.length > 0 ? employees : "No employees found");
-    console.log(employees);
+    const formData = useSelector(state => state);
+    console.log(formData && formData.length > 0 ? formData : "No employees found");
+    console.log(formData);
 
     // récupére la data du localStorage
-    const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
+    /*const storedData = JSON.parse(localStorage.getItem('storedData') || '{}');
     const formData = storedData.dataWithKeys;
-    console.log(formData);
+    console.log(formData);*/
 
     // nombre d'éléments par page
     const pagination = {
@@ -70,10 +70,10 @@ const CurrentEmployees = () => {
         <div className='currentEmployees'>
             <h1 className='title'>Current Employees</h1>
             <Table dataSource={formData} columns={columns} pagination={pagination}/>
-            {employees == null ? (
-              <p>No employees found</p>
+            {formData == null ? (
+              <p>No formData found</p>
           ) : (
-            employees.map((employee, index) => (
+            formData.map((employee, index) => (
               <p key={index}>
                 <p>{employee.firstName}</p>1
                 <p>{employee.lastName}</p>

@@ -69,7 +69,7 @@ const CreateEmployee = () => {
         //return;
 
         // mets les datas dans un tableau d'objets
-        const employees = JSON.parse(localStorage.getItem('employees')) || [];
+        //const employees = JSON.parse(localStorage.getItem('employees')) || [];
         if ( // si il y a une data ca envoie le formulaire, sinon rien
             firstName &&
             lastName &&
@@ -97,7 +97,7 @@ const CreateEmployee = () => {
             // dispatch the addEmployee action with the new employee object as the payload
             dispatch(addEmployee(employee));
             
-            employees.push(employee);
+            /*employees.push(employee);
             console.log(employees);
             localStorage.setItem('employees', JSON.stringify(employees));
             setIsOpen(true);
@@ -111,7 +111,7 @@ const CreateEmployee = () => {
                 ...storedData,
                 dataWithKeys
             }));
-            console.log(storedData);
+            console.log(storedData);*/
             setErrorMessage(''); // Réinitialiser le message d'erreur
             // Réinitialiser le formulaire
             document.getElementById("create-employee").reset();
