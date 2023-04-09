@@ -19,11 +19,6 @@ const CreateEmployee = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
-    // error message
-    const [errorMessage, setErrorMessage] = useState('');
-    // handle Modal
-    const [isOpen, setIsOpen] = useState(false)
-
     // set a calendar maxDate
     const maxDate = new Date(); // Récupère la date actuelle
     // calendar birthDate
@@ -41,7 +36,6 @@ const CreateEmployee = () => {
         setSelectedDate(date); // Met à jour l'état avec la date sélectionnée
         const formatted = format(date, 'MM/dd/yyyy'); // formate la date dans le bon format
         setFormattedDate(formatted); 
-
     };
     // regex letter 
     const isLetter = (event) => {
@@ -60,8 +54,13 @@ const CreateEmployee = () => {
             event.preventDefault();
         }
     }
+    // error message
+    const [errorMessage, setErrorMessage] = useState('');
+    // handle Modal
+    const [isOpen, setIsOpen] = useState(false)
 
-    // récupére les datas du formulaire
+
+    // au clic sur le button save du form
     const saveEmployee = (event) => {
         event.preventDefault();
 
@@ -96,7 +95,7 @@ const CreateEmployee = () => {
             };
 
             const newEmployee = {
-                key: Date.now(), // génère un ID unique basé sur la date
+                key: Date.now(), // génère une key unique basé sur la date
                 ...employee,
               };
 
@@ -118,7 +117,7 @@ const CreateEmployee = () => {
                 dataWithKeys
             }));
             console.log(storedData);*/
-            
+            setIsOpen(true);
             setErrorMessage(''); // Réinitialiser le message d'erreur
             // Réinitialiser le formulaire
             document.getElementById("create-employee").reset();
