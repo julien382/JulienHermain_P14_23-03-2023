@@ -7,6 +7,7 @@ import '../styles/index.css';
 import Header from "./Header/Header";
 import CreateEmployee from '../pages/CreateEmployee/CreateEmployee';
 import CurrentEmployees from "../pages/CurrentEmployees/CurrentEmployees";
+import Error from "../pages/Error/Error";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<CreateEmployee />}></Route>
         <Route path="/employees" element={<CurrentEmployees />}></Route>
+        <Route path="/*" element={<Error />}></Route>
       </Routes>
 
     </div>
